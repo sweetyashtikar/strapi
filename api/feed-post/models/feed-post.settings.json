@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "feed_posts",
+  "info": {
+    "name": "FeedPost",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    },
+    "user": {
+      "via": "feed_posts",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "comments": {
+      "via": "feed_post",
+      "collection": "feed-post-comment"
+    },
+    "liked_by_users": {
+      "via": "liked_posts",
+      "plugin": "users-permissions",
+      "collection": "user",
+      "dominant": true
+    },
+    "group": {
+      "via": "feed_posts",
+      "collection": "group"
+    },
+    "media": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": ["images", "files", "videos"],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "poll": {
+      "model": "polls"
+    },
+    "group": {
+      "via": "feed_posts",
+      "model": "group"
+    }
+  }
+}

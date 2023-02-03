@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notifications",
+  "info": {
+    "name": "Notification",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "action": {
+      "type": "enumeration",
+      "enum": [
+        "commented",
+        "liked",
+        "connectionRequest",
+        "discussionReply",
+        "posted",
+        "messaged"
+      ]
+    },
+    "userSender": {
+      "via": "notificationsSent",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "userReceiver": {
+      "via": "notificationsReceived",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "references": {
+      "type": "json"
+    },
+    "isSeen": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
