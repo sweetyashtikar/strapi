@@ -66,24 +66,24 @@ module.exports = {
 
   
   async findprofee(ctx) {
-    let entity;
+    let entity1;
     //get authenticated user details
     const user = ctx.state.user;
     if (!user) {
       return ctx.unauthorized("No authorization header was found.");
     }
-    entity = await strapi.query("profile").findOne({ user: user.id });
+    entity1 = await strapi.query("profile").findOne({ user: user.id });
 
-    return entity
+    return entity1
   },
 
   async findOne(ctx) {
-    let entity;
+    let entity1;
 
     const { id } = ctx.params;
 
     if (id) {
-      entity = strapi
+      entity1 = strapi
         .query("feed-post")
         .model.findOne({ _id: id })
         .populate({
@@ -100,7 +100,7 @@ module.exports = {
         });
     }
 
-    return entity;
+    return entity1;
   },
 
   async create(ctx) {

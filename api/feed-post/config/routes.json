@@ -59,8 +59,8 @@
     }
     , {
       "method": "POST",
-      "path": "/feed-posts/entity",
-      "handler": "feed-postentity.find",
+      "path": "/feed-posts/entity:id",
+      "handler": "feed-postentity.findOne",
       "config": {
         "policies": []
       }
